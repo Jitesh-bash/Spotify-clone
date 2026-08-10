@@ -1,0 +1,197 @@
+.lib-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  flex-shrink: 0;
+
+}
+.library {
+  display: flex;
+  align-items: center;
+  /* was justify-content:center — that collapsed the row so the
+     close button had nowhere to push to */
+  gap: 8px;
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+.library img{
+  height: 35px;
+
+}
+.library ul{
+  font-size: 25px;
+  color: white;
+}
+ul {
+  margin: 8px;
+  padding: 0;
+}
+.box1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 28px;
+  width: 28px;
+  border: 2px solid black;
+  border-radius: 50%;
+  padding: 4px;
+  background-color: #1f1f1f;
+}
+.ending {
+  /* padding-top: 250px; */
+  display: flex;
+  font-size: 9px;
+  flex-direction: column;
+  /* margin-top: auto; */
+  padding-left: 20px;
+  flex-shrink: 0;
+  padding-top: 50px;
+
+}
+.first {
+  display: flex;
+}
+.secound {
+  display: flex;
+}
+.world {
+  height: 16px;
+  width: 16px;
+  font-weight: 600;
+  font-size: 12px;
+}
+.image {
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  margin: 15px 8px;
+  background-color: #121212;
+  color: white;
+  display: flex;
+  border-radius: 500px;
+  border: 2px solid white;
+  width: fit-content;
+  font-weight: 500;
+  font-family: spotifyMix;
+  font-size: 10px;
+}
+.nav-center {
+  display: flex;
+  gap: 8px;
+  /* 0 = don't grow, so it keeps its natural 380px and sits dead
+     centre. 1 = but DO shrink when the screen gets narrow. */
+  flex: 0 1 auto;
+  min-width: 0;
+}
+.nav-left {
+  /* flex:1 here AND on .text is what centres .nav-center:
+     both sides claim equal leftover space, so the middle
+     lands in the middle no matter how wide the logo is. */
+  flex: 1;
+  min-width: 0;
+}
+.Spotify {
+  height: 25px;
+  filter: invert(1);
+}
+.home {
+  height: 16px;
+  filter: invert(1);
+}
+.download {
+  height: 16px;
+  filter: invert(0.7);
+}
+.search {
+  height: 16px;
+  filter: invert(1);
+}
+.browse {
+  height: 18px;
+  filter: invert(1);
+}
+.text {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+  /* NO min-width:0 here. These links are white-space:nowrap, so
+     shrinking the box below its text just makes the text spill out
+     the left side and land under the search bar. Letting the box
+     keep its content width is what keeps them apart. */
+  white-space: nowrap;
+  font-size: 15px;
+}
+.text ul {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  gap: 4px;
+}
+.text button {
+  border-radius: 100px;
+  padding: 10px 25px;
+  background-color: white;
+  font-weight: 700;
+}
+.minibox {
+  display: flex;
+  align-items: center;
+  padding: 4px 12px;
+  border: 2px solid black;
+  border-radius: 500px;
+  box-sizing: border-box;
+  /* was a hard 380px — now it shrinks on small screens */
+  width: 380px;
+  min-width: 0;
+  max-width: 100%;
+  gap: 4px;
+  background-color: #1f1f1f;
+}
+.minibox input {
+  border: none;
+  outline: none;
+  font-size: 12px;
+  /* min-width:0 lets the input shrink below its default size;
+     without it flex refuses to go under ~180px */
+  width: 100%;
+  min-width: 0;
+  padding-left: 8px;
+  background-color: #1f1f1f;
+  color: white;
+}
+.pipe {
+  width: 1px;
+  height: 22px;
+  background-color: gray;
+  margin: 0 4px;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 24px;
+  flex-shrink: 0;
+}
+
+.flex {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background-color: #000000;
+}
+.justify {
+  justify-content: center;
+}
+.align-center {
+  align-items: center;
+}
+.SpotifyPlaylist{
+  color: white;
+  font-family: spotifyMix;
+  font-weight: 700;
+  font-size: 30px;
+  padding: 50px 25px;
+}

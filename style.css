@@ -1,0 +1,362 @@
+@font-face {
+  font-family: SpotifyMix;
+  src: url(font/spotify_mix_ui_regular.otf);
+}
+body {
+  background-color: #000000;
+  color: #b3b3b3;
+  margin: 0;
+  height: 100vh;
+  font-family: SpotifyMix;
+  font-weight: 700;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  flex: 1;
+  min-height: 0;
+  /* anchors the absolutely-positioned drawer to this box
+     instead of to the whole page */
+  position: relative;
+}
+.invert {
+  filter: invert(1);
+}
+.left {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex-shrink: 0;
+  background-color: #121212;
+  border-radius: 8px;
+  overflow-y: hidden;
+}
+.right {
+  min-width: 0;
+  background-color: #121212;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex: 1;
+}
+.right-content {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+.card {
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: transparent;
+  transition: background-color 0.3s;
+}
+.card:hover {
+  background-color: #1f1f1f;
+}
+.card-img {
+  position: relative;
+}
+.card img {
+  width: 100%;
+  display: block;
+  border-radius: 6px;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+}
+.card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 12px;
+  line-height: 1.4;
+}
+.card-artist {
+  font-size: 12px;
+  font-weight: 400;
+  color: #b3b3b3;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+.card-container {
+  display: grid;
+  /* 140 instead of 180 so two columns fit a 390px phone.
+     auto-fill still gives 4-5 columns on a desktop. */
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 24px 25px;
+  /* removed overflow-y:auto — .right-content is already the
+     scroller, and nesting two broke the playbar's position.
+     removed justify-content:center — 1fr already fills the row. */
+}
+.play {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  height: 40px;
+  width: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: #1ed760;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  /* opacity:0 + the .card:hover rule moved into the
+     @media (hover: hover) block at the bottom of this file,
+     so touch screens keep the button visible */
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
+}
+.play img {
+  height: 54px;
+  width: 54px;
+  aspect-ratio: auto;
+}
+.playbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  flex-shrink: 0;
+  background-color: #c6b3b3;
+  border-radius: 10px;
+  filter: invert(1);
+  box-sizing: border-box;
+  padding: 8px 16px;
+  height: 90px;
+  position: relative;
+}
+.songbuttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  bottom: 500px;
+  cursor: pointer;
+  flex: 1;
+}
+.songlist {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+.songlist::-webkit-scrollbar,
+.right-content::-webkit-scrollbar {
+  width: 8px;
+}
+.songlist::-webkit-scrollbar-track,
+.right-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.songlist::-webkit-scrollbar-thumb,
+.right-content::-webkit-scrollbar-thumb {
+  background: #5a5a5a;
+  border-radius: 4px;
+}
+.songlist::-webkit-scrollbar-thumb:hover,
+.right-content::-webkit-scrollbar-thumb:hover {
+  background: #7a7a7a;
+}
+.songlist ul {
+  padding: 0 12px;
+  margin: 0;
+  list-style: none;
+}
+.songlist ul li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  padding: 9px 9px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 2px solid #5a5a5a;
+}
+.songlist ul li img {
+  height: 20px;
+  flex-shrink: 0;
+}
+.info {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.3;
+}
+/* keeps every row the same height — a long name gets cut with "…"
+   instead of wrapping onto 3 lines. min-width:0 above is what lets
+   this work; without it the text refuses to shrink. */
+.info div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.info div:last-child {
+  font-size: 12px;
+  color: #b3b3b3;
+}
+.playnow {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+  align-items: center;
+}
+.playnow span {
+  font-size: 13px;
+  white-space: nowrap;
+}
+.playnow img {
+  height: 20px;
+}
+.songtime {
+  text-align: right;
+  /* overflow: auto; */
+  /* margin-bottom: 44px; */
+}
+.seekbar {
+  left: 0;
+  height: 2px;
+  width: 98%;
+  border: 2px solid black;
+  position: relative;
+  border-radius: 15px;
+  bottom: 0;
+  top: 5px;
+  cursor: pointer;
+}
+.songinfo,
+.songtime {
+  color: black;
+  flex: 1;
+}
+.circle {
+  width: 13px;
+  height: 13px;
+  border-radius: 13px;
+  background-color: black;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transition: left 0.5s;
+  transform: translateY(-50%);
+}
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.hamburger {
+  display: none;
+}
+.close {
+  /* margin-left:auto pushes it to the right edge on any width.
+     The old padding-left:190px was a fixed guess that overflowed
+     narrow screens. */
+  margin-left: auto;
+  cursor: pointer;
+  display: none;
+}
+@media (max-width: 1020px) {
+  .left {
+    position: absolute;
+    left: -120%;
+    /* top+bottom force the drawer to span the container's full
+       height. Without them an absolute box is only as tall as
+       its content, which is why it stopped halfway. */
+    top: 0;
+    bottom: 0;
+    transition: left 0.3s;
+    z-index: 2;
+    /* never wider than the screen — 373px overflowed a 390px phone
+       once padding was counted */
+    width: min(85vw, 373px);
+  }
+  .left .close {
+    display: block;
+    width: 24px;
+    flex-shrink: 0;
+  }
+  /* .right {
+    width: 100vw;
+  }
+  .playbar {
+    width: calc(100vw - 60px);
+    margin: 0 auto;
+  } */
+  .seekbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /* .seekbar {
+    width: calc(100vw - 70px);
+  } */
+
+  .right {
+    width: 100%;
+  }
+  .playbar {
+    width: 100%;
+  } /* margin: 0 auto no longer needed */
+  .seekbar {
+    width: 100%;
+  }
+  .hamburger {
+    display: block;
+    position: relative;
+    top: -30px;
+    margin-bottom: -30px;
+    cursor: pointer;
+  }
+  .card-container {
+    margin: 0;
+    /* tighter gaps buy back width for a 2nd column */
+    gap: 16px 12px;
+  }
+  /* 25px of side padding is 13% of a 390px screen — too expensive */
+  .SpotifyPlaylist {
+    padding: 20px 16px;
+    font-size: 22px;
+  }
+  /* phone navbar = logo + search only.
+     .text holds Premium/Support/Download/Install App/Sign up/Log in
+     — hiding the whole box is simpler than hiding each child, and
+     it frees all that space for the search bar. */
+  .text {
+    display: none;
+  }
+  .navbar {
+    padding: 0 12px;
+  }
+  /* .text is gone, so nothing is claiming the right-hand space.
+     Stop .nav-left from claiming it either, and let the search
+     box grow into it instead. */
+  .nav-left {
+    flex: 0 0 auto;
+  }
+  .nav-center {
+    flex: 1 1 auto;
+  }
+  .minibox {
+    width: auto;
+    flex: 1;
+  }
+}
+/* Phones have no hover, so a hover-only play button would never
+   appear. Only hide it on devices that actually have a pointer. */
+@media (hover: hover) {
+  .play {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  .card:hover .play {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

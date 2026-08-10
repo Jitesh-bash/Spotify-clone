@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <!-- utility.css first, style.css last: the media queries live in
+         style.css and must come after the base rules to win the cascade -->
+    <link rel="stylesheet" href="utility.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-left">
+
+            <img class="Spotify" src="logo.svg" alt="Spotify">
+        </div>
+        <div class="nav-center">
+            <div class="box box1">
+                <img class="home" src="home.svg" alt="home">
+            </div>
+            <div class="minibox">
+                <img class="search" src="search.svg" alt="search">
+                <input placeholder="What do you want to play?" type="text">
+                <div class="pipe"></div>
+                <img class="browse" src="browse.svg" alt="browse">
+            </div>
+        </div>
+        <div class="text">
+            <ul class="nav-extra">Premium</ul>
+            <ul class="nav-extra">Support</ul>
+            <ul class="nav-extra">Download</ul>
+            <div class="pipe nav-extra"></div>
+            <ul class="nav-extra">
+                <img class="download" src="download.svg" alt="download"> Install App
+            </ul>
+            <ul class="nav-signup">Sign up</ul>
+            <button>Log in</button>
+        </div>
+    </div>
+    <div class="container flex">
+        <div class="left">
+
+            <div class="lib-header">
+                <div class="library">
+                    <img src="playlist.svg" alt="">
+                    <ul>Your library</ul>
+                    <img class="invert close"src="close.svg" alt="close">
+                </div>
+            </div>
+            <div class="songlist">
+                <ul>
+
+                </ul>
+            </div>
+            <div class="ending">
+                <div class="first">
+                    <ul>Legal</ul>
+                    <ul>Safety&PrivacyCenter</ul>
+                    <ul>Privacy Policy</ul>
+                    <ul>Cookies</ul>
+                </div>
+                <div class="secound">
+                    <ul>AboutAds</ul>
+                    <ul>Accessibility</ul>
+                </div>
+                <div class="third">
+                    <ul>Cookies</ul>
+                </div>
+                <button class="image">
+                    <img class="world" src="world.svg" alt="world">English
+                </button>
+            </div>
+        </div>
+        <div class="right">
+            <div class="right-content">
+                <div class="SpotifyPlaylist">
+                    <img class="invert hamburger" src="hamburger.svg" alt="Open menu">
+                    <ul>Spotify Playlist</ul>
+                    <div class="card-container">
+                        <div class="card" data-folder="English">
+                            <div class="card-img">
+                                <img src="spotify-playlist/1.jpg" alt="">
+                                <button class="play">
+                                    <img src="play.svg" alt="play">
+                                </button>
+                            </div>
+                            <div class="card-title">lofi chill</div>
+                            <div class="card-artist">Lazy slow lofi beats for laid-back moments.</div>
+                        </div>
+                        <div class="card" data-folder="HIndi">
+                            <div class="card-img">
+                                <img src="spotify-playlist/2.jpg" alt="">
+                                <button class="play">
+                                    <img src="play.svg" alt="play">
+                                </button>
+                            </div>
+                            <div class="card-title">Jazz Vibes</div>
+                            <div class="card-artist">The original chill instrumental beats playlist.</div>
+                        </div>
+                        <div class="card" data-folder="tamil">
+                            <div class="card-img">
+                                <img src="spotify-playlist/3.jpg" alt="">
+                                <button class="play">
+                                    <img src="play.svg" alt="play">
+                                </button>
+                            </div>
+                            <div class="card-title">chillhop</div>
+                            <div class="card-artist">blissed out beats and head nodding grooves - relax, study and vibe. </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="playbar">
+                <div class="seekbar">
+                    <div class="circle">
+                    </div>
+                </div>
+                <div class="controls">
+                    <div class="songinfo"></div>
+                    <div class="songbuttons">
+                        <img  id="previous" src="presong.svg" alt="">
+                        <img  id="play" src="spoti_play.svg" alt="">
+                        <img  id="next" src="nextsong.svg" alt="">
+                    </div>
+                    <div class="songtime"></div>
+
+                </div>
+            </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+</body>
+
+</html>

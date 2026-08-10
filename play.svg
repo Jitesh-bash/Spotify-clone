@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="800"
+     height="800"
+     viewBox="0 0 24 24">
+
+    <!-- Green Circle -->
+    <circle
+        cx="12"
+        cy="12"
+        r="10"
+        fill="#1ED760"/>
+
+    <!-- Black Play Button -->
+    <path
+        d="M10 8.5
+           L16 12
+           L10 15.5
+           Z"
+        fill="#000000"/>
+
+</svg>
