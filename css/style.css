@@ -1,6 +1,6 @@
 @font-face {
   font-family: SpotifyMix;
-  src: url(font/spotify_mix_ui_regular.otf);
+  src: url(../font/spotify_mix_ui_regular.otf);
 }
 body {
   background-color: #000000;

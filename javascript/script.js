@@ -76,7 +76,7 @@ const playMusic = (track, pause = false) => {
   currentSong.src = `${currFolder}/${track}`;
   if (!pause) {
     currentSong.play();
-    play.src = "pause.svg";
+    play.src = "../svgs/pause.svg";
   }
 
   document.querySelector(".songinfo").innerHTML = parseTrackName(track).title;
@@ -97,14 +97,14 @@ function renderSongList() {
     const { artist, title } = parseTrackName(song);
 
     html += `<li data-track="${song}">
-                <img class="invert" src="music.svg" alt="">
+                <img class="invert" src="../svgs/music.svg" alt="">
                 <div class="info">
                     <div>${title}</div>
                     <div>${artist}</div>
                 </div>
                 <div class="playnow">
                     <span>Play Now</span>
-                    <img class="invert" src="spoti_play.svg" alt="">
+                    <img class="invert" src="../svgs/spoti_play.svg" alt="">
                 </div>
             </li>`;
   }
@@ -135,7 +135,7 @@ async function loadPlaylist(folder) {
 }
 
 async function main() {
-  await loadPlaylist("songs/English");
+  await loadPlaylist("../songs/English");
 
   // Clicking a card loads that folder's playlist.
   // Three fixes vs the old version:
@@ -147,7 +147,7 @@ async function main() {
       // the 3rd card has no data-folder yet, so ignore clicks on it
       // instead of fetching "songs/undefined"
       if (!card.dataset.folder) return;
-      loadPlaylist(`songs/${card.dataset.folder}`);
+      loadPlaylist(`../songs/${card.dataset.folder}`);
     });
   });
 
@@ -158,10 +158,10 @@ async function main() {
   play.addEventListener("click", () => {
     if (currentSong.paused) {
       currentSong.play();
-      play.src = "pause.svg";
+    play.src = "../svgs/pause.svg";
     } else {
       currentSong.pause();
-      play.src = "spoti_play.svg";
+      play.src = "../svgs/spoti_play.svg";
     }
   });
 
