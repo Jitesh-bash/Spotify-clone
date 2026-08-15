@@ -3,7 +3,7 @@
 A front-end clone of the Spotify web player, built with plain HTML, CSS, and
 JavaScript. No frameworks, no build step — open `index.html` and it runs.
 
-![Spotify clone UI](spotify%28UI%29.PNG)
+![Spotify clone UI](Spotify_ui.PNG)
 
 ## Features
 
